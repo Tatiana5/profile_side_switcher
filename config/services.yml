@@ -1,0 +1,7 @@
+services:
+    tatiana5.profile_side_switcher.listener:
+        class: tatiana5\profile_side_switcher\event\listener
+        arguments:
+        - @user
+        tags:
+            - { name: event.listener }
