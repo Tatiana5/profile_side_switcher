@@ -59,7 +59,6 @@ class listener implements EventSubscriberInterface
 			'core.viewtopic_modify_page_title'	=> 'profile_side_switcher',
 			'core.ucp_prefs_view_data'			=> 'ucp_profile_side_switcher_get',
 			'core.ucp_prefs_view_update_data'	=> 'ucp_profile_side_switcher_set',
-			'core.ucp_prefs_modify_common'		=> 'add_ucp_prefs_template_vars',
 		);
 	}
 	
@@ -70,6 +69,10 @@ class listener implements EventSubscriberInterface
 			'lang_set' => 'profile_side_switcher',
 		);
 		$event['lang_set_ext'] = $lang_set_ext;
+		
+		$this->template->assign_vars(array(
+			'S_PSS_LEFT'	=> $this->user->data['allow_pss_left'],
+		));
 	}
 	
 	public function profile_side_switcher($event) {
@@ -93,7 +96,6 @@ class listener implements EventSubscriberInterface
 		}
 		
 		$this->template->assign_vars(array(
-			'S_PSS_LEFT'	=> $this->user->data['allow_pss_left'],
 			'PSS_URL'		=> append_sid("{$this->phpbb_root_path}viewtopic.$this->php_ext", 'f=' . $forum_id . '&amp;t='. $topic_data['topic_id'] . '&amp;pss=1'),
 		));
 	}
