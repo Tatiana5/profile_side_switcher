@@ -1,0 +1,6 @@
+/* Mini profiles on the left */
+@media only screen and (min-width: 700px), only screen and (device-min-width: 700px) {
+	.leftsided .online .postprofile {
+		background: url("./icon_user_online_left.png") right top no-repeat;
+	}
+}

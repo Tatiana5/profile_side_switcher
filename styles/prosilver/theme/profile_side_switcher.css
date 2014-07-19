@@ -1,35 +1,34 @@
 /* Mini profiles on the left */
-.leftsided .postbody {
-	float: right;
-	width: 79%;
-}
-.leftsided .postprofile {
-	float: left;
-	width: 20%;
-	border-left: none;
-	border-right: 1px solid #FFF;
-}
-.leftsided .pm .postprofile {
-	border-left: none;
-	border-right: 1px solid #DDD;
-}
-.leftsided .postprofile dd, .leftsided .postprofile dt {
-	margin: 0 8px 0 0;
-}
-.leftsided .online .postprofile {
-	background: url("./en/icon_user_online.gif") right top no-repeat;
-}
-.leftsided .post.online {
-	background-image: none;
-}
-.leftsided ul.profile-icons {
-	margin-right: 0.1em;
+@media only screen and (min-width: 700px), only screen and (device-min-width: 700px) {
+	.leftsided .postbody {
+		float: right;
+		width: 79%;
+	}
+	.leftsided .postprofile {
+		float: left;
+		width: 20%;
+		border-left: none;
+		border-right: 1px solid #FFF;
+	}
+	.leftsided .pm .postprofile {
+		border-left: none;
+		border-right: 1px solid #DDD;
+	}
+	.leftsided .postprofile dd, .leftsided .postprofile dt {
+		margin: 0 12px 0 0;
+	}
+	.leftsided .post.online {
+		background-image: none;
+	}
+	.leftsided ul.profile-icons {
+		margin-right: 0.1em;
+	}
 }
 
-#profile-switcher {
-	height: 18px;
-	margin-bottom: -4px;
-	margin-top: 4px;
-	padding: 0;
-	width: 22px;
+.icon-pss-left {
+	background-image: url("./images/icon_profiles_left.png");
+}
+
+.icon-pss-right {
+	background-image: url("./images/icon_profiles_right.png");
 }

@@ -1,0 +1,15 @@
+<!-- IF S_USER_LOGGED_IN and not S_IS_BOT -->
+	<li class="small-icon icon-pss-left">
+		<a href="{PSS_URL}" id="profile-switcher" onclick="switchProfiles(false); return false;" data-ajax="pss">{L_PSS_LEFT}</a>
+		<!-- IF S_PSS_LEFT -->
+			<script type="text/javascript">
+			// <![CDATA[
+				var pss_btn = document.getElementById('profile-switcher');
+				var pss_url = pss_btn.getAttribute('href');
+				pss_url = pss_url.substring(0, pss_url.length - 1) + '0';
+				pss_btn.setAttribute('href', pss_url);
+			// ]]>
+			</script>
+		<!-- ENDIF -->
+	</li>
+<!-- ENDIF -->

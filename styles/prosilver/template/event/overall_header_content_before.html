@@ -1,1 +1,8 @@
-<!-- IF S_VIEWTOPIC || S_VIEW_MESSAGE || (.searchresults && ! S_SHOW_TOPICS) --><script type="text/javascript">var langProfilesLR = ['{L_PSS_LEFT}', '{L_PSS_RIGHT}']; switchProfiles(true);</script><!-- ENDIF -->
+<!-- IF S_PSS_LEFT -->
+	<script type="text/javascript">
+	// <![CDATA[
+		var pss_cont = document.getElementById('page-body');
+		pss_cont.className = 'leftsided';
+	// ]]>
+	</script>
+<!-- ENDIF -->

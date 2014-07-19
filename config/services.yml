@@ -2,6 +2,10 @@ services:
     tatiana5.profile_side_switcher.listener:
         class: tatiana5\profile_side_switcher\event\listener
         arguments:
+        - @template
         - @user
+        - @dbal.conn
+        - %core.root_path%
+        - %core.php_ext%
         tags:
             - { name: event.listener }
