@@ -84,7 +84,7 @@ class listener implements EventSubscriberInterface
 		if ($request->is_ajax() && $request->is_set('pss'))
 		{
 			$pss_left = request_var('pss', 0);
-			$sql = 'UPDATE ' . USERS_TABLE . ' SET allow_pss_left = ' . (int) $pss_left;
+			$sql = 'UPDATE ' . USERS_TABLE . ' SET allow_pss_left = ' . (int) $pss_left . ' WHERE user_id = ' . (int) $this->user->data['user_id'];
 			$result = $this->db->sql_query($sql);
 			
 			$json_response = new \phpbb\json_response;
