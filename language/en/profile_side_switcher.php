@@ -1,9 +1,9 @@
 <?php
 /**
 *
-* profile_side_switcher [English]
+* profileSideSwitcher [English]
 *
-* @package language profile_side_switcher
+* @package language profileSideSwitcher
 * @copyright (c) 2014 Татьяна5
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *

@@ -1,6 +1,6 @@
 services:
-    tatiana5.profile_side_switcher.listener:
-        class: tatiana5\profile_side_switcher\event\listener
+    tatiana5.profileSideSwitcher.listener:
+        class: tatiana5\profileSideSwitcher\event\listener
         arguments:
         - @template
         - @user

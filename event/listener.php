@@ -1,13 +1,13 @@
 <?php
 /**
 *
-* @package profile_side_switcher
+* @package profileSideSwitcher
 * @copyright (c) 2014 Татьяна5
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
-namespace tatiana5\profile_side_switcher\event;
+namespace tatiana5\profileSideSwitcher\event;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -65,7 +65,7 @@ class listener implements EventSubscriberInterface
 	public function load_language_on_setup($event) {
 		$lang_set_ext = $event['lang_set_ext'];
 		$lang_set_ext[] = array(
-			'ext_name' => 'tatiana5/profile_side_switcher',
+			'ext_name' => 'tatiana5/profileSideSwitcher',
 			'lang_set' => 'profile_side_switcher',
 		);
 		$event['lang_set_ext'] = $lang_set_ext;

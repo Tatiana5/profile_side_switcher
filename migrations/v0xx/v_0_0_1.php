@@ -1,13 +1,13 @@
 <?php
 /**
 *
-* @package profile_side_switcher
+* @package profileSideSwitcher
 * @copyright (c) 2014 Татьяна5
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
 
-namespace tatiana5\profile_side_switcher\migrations\v0xx;
+namespace tatiana5\profileSideSwitcher\migrations\v0xx;
 
 class v_0_0_1 extends \phpbb\db\migration\migration
 {
