@@ -74,7 +74,7 @@ class listener implements EventSubscriberInterface
 			'lang_set' => 'profile_side_switcher',
 		);
 		$event['lang_set_ext'] = $lang_set_ext;
-	
+
 		$this->template->assign_vars(array(
 			'S_PSS_LEFT'	=> $this->user->data['allow_pss_left'],
 		));
