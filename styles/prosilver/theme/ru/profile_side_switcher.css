@@ -4,6 +4,9 @@
 }
 @media only screen and (max-width: 700px), only screen and (max-device-width: 700px) {
 	.leftsided .online .postprofile {
-		background: url("./icon_user_online.gif") 100% 0 no-repeat;
+		background: none;
+	}
+	.leftsided .post.online {
+		background-image: url("./icon_user_online.gif");
 	}
 }

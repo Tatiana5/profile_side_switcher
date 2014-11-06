@@ -1,27 +1,39 @@
 /* Mini profiles on the left */
-@media only screen and (min-width: 700px), only screen and (device-min-width: 700px) {
+.leftsided div.postbody {
+	float: right;
+	width: 79%;
+}
+.leftsided .postprofile {
+	float: left;
+	width: 20%;
+	border-left: none;
+	border-right: 1px solid #FFF;
+}
+.leftsided .pm .postprofile {
+	border-left: none;
+	border-right: 1px solid #DDD;
+}
+.leftsided .postprofile dd, .leftsided .postprofile dt {
+	margin: 0 12px 0 0;
+}
+.leftsided .post.online {
+	background-image: none;
+}
+@media only screen and (max-width: 700px), only screen and (max-device-width: 700px) {
 	.leftsided div.postbody {
-		float: right;
-		width: 79%;
+		float: none;
+		width: auto;
 	}
 	.leftsided .postprofile {
-		float: left;
-		width: 20%;
-		border-left: none;
-		border-right: 1px solid #FFF;
+		float: none;
+		width: auto;
+		border-right: none;
 	}
 	.leftsided .pm .postprofile {
-		border-left: none;
-		border-right: 1px solid #DDD;
+		border-right: none;
 	}
 	.leftsided .postprofile dd, .leftsided .postprofile dt {
-		margin: 0 12px 0 0;
-	}
-	.leftsided .post.online {
-		background-image: none;
-	}
-	.leftsided ul.profile-icons {
-		margin-right: 0.1em;
+		margin: 0;
 	}
 }
 
