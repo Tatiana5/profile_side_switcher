@@ -5,6 +5,7 @@ services:
         - @template
         - @user
         - @dbal.conn
+        - @request
         - %core.root_path%
         - %core.php_ext%
         tags:
