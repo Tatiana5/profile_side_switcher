@@ -2,6 +2,8 @@
 
 This is the repository for the development of the phpBB Profile Side Switcher Extension.
 
+[![Build Status](https://travis-ci.org/Tatiana5/profile_side_switcher.svg)](https://travis-ci.org/Tatiana5/profile_side_switcher)
+
 ## Quick Install
 You can install this on the latest copy of the develop branch ([phpBB 3.1-dev](https://github.com/phpbb/phpbb3)) by following the steps below:
 
