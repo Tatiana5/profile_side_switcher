@@ -30,13 +30,19 @@ class listener implements EventSubscriberInterface
 
 	/** @var string */
 	protected $phpbb_root_path;
+
+	/** @var string */
 	protected $php_ext;
 
 	/**
 	* Constructor
 	* 
-	* @param \phpbb\template\template $template
-	* @param \phpbb\user $user
+	* @param \phpbb\template\template          $template
+	* @param \phpbb\user                       $user
+	* @param \phpbb\db\driver\driver_interface $db
+	* @param \phpbb\request\request            $request
+	* @param string                            $phpbb_root_path
+	* @param string                            $php_ext
 	*/
 
 	public function __construct(\phpbb\template\template $template, \phpbb\user $user, \phpbb\db\driver\driver_interface $db, \phpbb\request\request $request, $phpbb_root_path, $php_ext)
@@ -85,16 +91,19 @@ class listener implements EventSubscriberInterface
 		$topic_data = $event['topic_data'];
 		$forum_id = $event['forum_id'];
 
-		if ($this->request->is_ajax() && $this->request->is_set('pss'))
+		if ($this->request->is_set('pss'))
 		{
 			$pss_left = $this->request->variable('pss', 0);
 			$sql = 'UPDATE ' . USERS_TABLE . ' SET allow_pss_left = ' . (int) $pss_left . ' WHERE user_id = ' . (int) $this->user->data['user_id'];
 			$result = $this->db->sql_query($sql);
 
-			$json_response = new \phpbb\json_response;
-			$json_response->send(array(
-				'success'		=> ($result) ? true : false,
-			));
+			if ($this->request->is_ajax())
+			{
+				$json_response = new \phpbb\json_response;
+				$json_response->send(array(
+					'success'		=> ($result) ? true : false,
+				));
+			}
 
 			$this->db->sql_freeresult($result);
 		}
