@@ -34,6 +34,9 @@ class listener implements EventSubscriberInterface
 	/** @var string */
 	protected $php_ext;
 
+	/** @var string */
+	protected $ext_name;
+
 	/**
 	* Constructor
 	* 
@@ -43,6 +46,7 @@ class listener implements EventSubscriberInterface
 	* @param \phpbb\request\request            $request
 	* @param string                            $phpbb_root_path
 	* @param string                            $php_ext
+	* @param string                            $ext_name
 	*/
 
 	public function __construct(\phpbb\template\template $template, \phpbb\user $user, \phpbb\db\driver\driver_interface $db, \phpbb\request\request $request, $phpbb_root_path, $php_ext)
@@ -53,6 +57,7 @@ class listener implements EventSubscriberInterface
 		$this->request = $request;
 		$this->phpbb_root_path = $phpbb_root_path;
 		$this->php_ext = $php_ext;
+		$this->ext_name = "tatiana5/profileSideSwitcher";
 	}
 
 	/**
@@ -66,6 +71,7 @@ class listener implements EventSubscriberInterface
 	{
 		return array(
 			'core.user_setup'					=> 'load_language_on_setup',
+			'core.page_header_after'			=> 'generate_paths',
 			'core.viewtopic_modify_page_title'	=> 'profile_side_switcher',
 			'core.ucp_prefs_view_data'			=> 'ucp_profile_side_switcher_get',
 			'core.ucp_prefs_view_update_data'	=> 'ucp_profile_side_switcher_set',
@@ -83,6 +89,26 @@ class listener implements EventSubscriberInterface
 
 		$this->template->assign_vars(array(
 			'S_PSS_LEFT'	=> $this->user->data['allow_pss_left'],
+		));
+	}
+
+	public function generate_paths($event)
+	{
+		$ext_style_path = $this->phpbb_root_path . 'ext/' . $this->ext_name . '/styles/';
+		$style_lang_path = rawurlencode($this->user->style['style_path']) . '/theme/' . $this->user->lang_name . '/profile_side_switcher.css';
+		if (!file_exists($ext_style_path . $style_lang_path))
+		{
+			// Fallback to English language.
+			$style_lang_path = rawurlencode($this->user->style['style_path']) . '/theme/en/profile_side_switcher.css';
+			if (!file_exists($ext_style_path . $style_lang_path))
+			{
+				// Fallback to prosilver (prosilver does not need to be installed on the board; but the style file for prosilver exists in this extension).
+				$style_lang_path = 'prosilver/theme/en/profile_side_switcher.css';
+			}
+		}
+
+		$this->template->assign_vars(array(
+			'T_PSS_STYLESHEET_LANG_LINK'	=> $style_lang_path,
 		));
 	}
 
