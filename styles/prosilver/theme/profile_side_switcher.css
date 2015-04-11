@@ -1,3 +1,4 @@
+<!-- IF (SCRIPT_NAME == 'viewtopic') -->
 /* Mini profiles on the left */
 .leftsided div.postbody {
 	float: right;
@@ -36,7 +37,7 @@
 		margin: 0;
 	}
 }
-
+<!-- ENDIF -->
 .icon-pss-left {
 	background-image: url("./images/icon_profiles_left.png");
 }
