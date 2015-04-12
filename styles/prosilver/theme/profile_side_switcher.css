@@ -1,6 +1,5 @@
-<!-- IF (SCRIPT_NAME == 'viewtopic') -->
 /* Mini profiles on the left */
-.leftsided div.postbody {
+.section-viewtopic .leftsided div.postbody {
 	float: right;
 	width: 79%;
 }
@@ -37,7 +36,7 @@
 		margin: 0;
 	}
 }
-<!-- ENDIF -->
+
 .icon-pss-left {
 	background-image: url("./images/icon_profiles_left.png");
 }
