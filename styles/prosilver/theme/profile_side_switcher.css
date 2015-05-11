@@ -1,5 +1,5 @@
 /* Mini profiles on the left */
-.leftsided div.postbody {
+.section-viewtopic .leftsided div.postbody {
 	float: right;
 	width: 79%;
 }
