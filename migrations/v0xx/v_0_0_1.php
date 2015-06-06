@@ -26,7 +26,7 @@ class v_0_0_1 extends \phpbb\db\migration\migration
 		return array(
 			'add_columns' => array(
 				$this->table_prefix . 'users' => array(
-					'allow_pss_left'	=> array('BOOL', 1),
+					'allow_pss_left'	=> array('BOOL', 0),
 				),
 			),
 		);
