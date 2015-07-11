@@ -39,7 +39,7 @@ class listener implements EventSubscriberInterface
 
 	/**
 	* Constructor
-	* 
+	*
 	* @param \phpbb\template\template          $template
 	* @param \phpbb\user                       $user
 	* @param \phpbb\db\driver\driver_interface $db
@@ -70,11 +70,14 @@ class listener implements EventSubscriberInterface
 	static public function getSubscribedEvents()
 	{
 		return array(
-			'core.user_setup'					=> 'load_language_on_setup',
-			'core.page_header_after'			=> 'generate_paths',
-			'core.viewtopic_modify_page_title'	=> 'profile_side_switcher',
-			'core.ucp_prefs_view_data'			=> 'ucp_profile_side_switcher_get',
-			'core.ucp_prefs_view_update_data'	=> 'ucp_profile_side_switcher_set',
+			'core.user_setup'							=> 'load_language_on_setup',
+			'core.page_header_after'					=> 'generate_paths',
+			'core.viewtopic_modify_page_title'			=> 'profile_side_switcher',
+			'core.ucp_prefs_view_data'					=> 'ucp_profile_side_switcher_get',
+			'core.ucp_prefs_view_update_data'			=> 'ucp_profile_side_switcher_set',
+			'core.acp_users_prefs_modify_data'			=> 'acp_profile_side_switcher_get',
+			'core.acp_users_prefs_modify_template_data'	=> 'acp_profile_side_switcher_template',
+			'core.acp_users_prefs_modify_sql'			=> 'ucp_profile_side_switcher_set', // For the ACP.
 		);
 	}
 
@@ -144,21 +147,38 @@ class listener implements EventSubscriberInterface
 	{
 		$data = $event['data'];
 		$data = array_merge($data, array(
-			'allow_pss_left'		=> $this->request->variable('pss_left', (bool) (isset($this->user->data['allow_pss_left']) ? $this->user->data['allow_pss_left'] : false))
+			'allow_pss_left'		=> $this->request->variable('pss_left', (int) (isset($this->user->data['allow_pss_left']) ? $this->user->data['allow_pss_left'] : 0))
 		));
 		$event['data'] = $data;
+	}
+
+	public function acp_profile_side_switcher_get($event)
+	{
+		$data = $event['data'];
+		$user_row = $event['user_row'];
+		$data = array_merge($data, array(
+			'allow_pss_left'		=> $this->request->variable('pss_left', (int) (isset($user_row['allow_pss_left']) ? $user_row['allow_pss_left'] : 0))
+		));
+		$event['data'] = $data;
+	}
+
+	public function acp_profile_side_switcher_template($event)
+	{
+		$data = $event['data'];
+		$user_prefs_data = $event['user_prefs_data'];
+		$user_prefs_data = array_merge($user_prefs_data, array(
+			'S_USER_PSS_LEFT'		=> $data['allow_pss_left'],
+		));
+		$event['user_prefs_data'] = $user_prefs_data;
 	}
 
 	public function ucp_profile_side_switcher_set($event)
 	{
 		$data = $event['data'];
 		$sql_ary = $event['sql_ary'];
-		if (isset($this->user->data['allow_pss_left']))
-		{
-			$sql_ary = array_merge($sql_ary, array(
-				'allow_pss_left'	=> ($data['allow_pss_left']) ? 1 : 0,
-			));
-		}
+		$sql_ary = array_merge($sql_ary, array(
+			'allow_pss_left'	=> $data['allow_pss_left'],
+		));
 		$event['sql_ary'] = $sql_ary;
 	}
 }

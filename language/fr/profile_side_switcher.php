@@ -42,4 +42,5 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'PSS_LEFT'			=> 'Mini-profils à gauche',
 	'PSS_RIGHT'			=> 'Mini-profils à droite',
+	'PSS_VIEW_LEFT'		=> 'Afficher le mini-profil à gauche des messages',
 ));
