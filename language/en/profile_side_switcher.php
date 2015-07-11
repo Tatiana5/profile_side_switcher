@@ -25,4 +25,5 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'PSS_LEFT'			=> 'Postprofile left',
 	'PSS_RIGHT'			=> 'Postprofile right',
+	'PSS_VIEW_LEFT'		=> 'Display postprofile left',
 ));

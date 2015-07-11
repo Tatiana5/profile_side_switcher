@@ -25,4 +25,5 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'PSS_LEFT'			=> 'Минипрофили слева',
 	'PSS_RIGHT'			=> 'Минипрофили справа',
+	'PSS_VIEW_LEFT'		=> 'Показывать минипрофили слева',
 ));

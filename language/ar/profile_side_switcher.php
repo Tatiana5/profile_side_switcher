@@ -26,4 +26,5 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'PSS_LEFT'			=> 'بيانات العضو باليسار',
 	'PSS_RIGHT'			=> 'بيانات العضو باليمين',
+	'PSS_VIEW_LEFT'		=> 'إظهار بيانات العضو باليسار',
 ));
