@@ -1,5 +1,5 @@
 /* Mini profiles on the left */
-.section-viewtopic .leftsided div.postbody {
+.section-viewtopic .leftsided div.postbody, .section-search .leftsided div.postbody {
 	float: right;
 	width: 79%;
 }
@@ -20,7 +20,7 @@
 	background-image: none;
 }
 @media only screen and (max-width: 700px), only screen and (max-device-width: 700px) {
-	.section-viewtopic .leftsided div.postbody {
+	.section-viewtopic .leftsided div.postbody, .section-search .leftsided div.postbody {
 		float: none;
 		width: auto;
 	}
