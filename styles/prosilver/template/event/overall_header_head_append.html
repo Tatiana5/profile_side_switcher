@@ -1,11 +1,11 @@
 <script type="text/javascript">
-// <![CDATA[	
+// <![CDATA[
 	function switchProfiles() {
 		var pss_cont = $('#page-body');
 		var pss_btn = $('#profile-switcher');
 		var pss_url = pss_btn.attr('href');
 		var pss_left = pss_cont.hasClass('leftsided');
-		
+
 		phpbb.addAjaxCallback('pss', function(res) {
 			if (res.success) {
 				if(pss_left) {
