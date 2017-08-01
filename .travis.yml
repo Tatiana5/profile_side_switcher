@@ -47,7 +47,6 @@ env:
     - master
     - develop
     - /^develop-.*$/
-    - /^\d+(\.\d+)?\.x$/
 
 before_install:
   - sudo mkdir travis
