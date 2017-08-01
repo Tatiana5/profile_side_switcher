@@ -1,9 +1,9 @@
 {
-    "name": "tatiana5/profileSideSwitcher",
+    "name": "tatiana5/profilesideswitcher",
     "type": "phpbb-extension",
-    "description": "An extension for phpBB 3.1 boards that allows to change the location of profiles in posts (to choose the left or the right side).",
+    "description": "An extension for phpBB 3.1 and 3.2 boards that allows to change the location of profiles in posts (to choose the left or the right side).",
     "homepage": "http://phpbbguru.net",
-    "version": "0.0.1",
+    "version": "1.0.1",
     "time": "2014-05-16",
     "license": "GPL-2.0",
     "authors": [

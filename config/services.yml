@@ -1,7 +1,8 @@
 services:
-    tatiana5.profileSideSwitcher.listener:
-        class: tatiana5\profileSideSwitcher\event\listener
+    tatiana5.profilesideswitcher.listener:
+        class: tatiana5\profilesideswitcher\event\listener
         arguments:
+        - @config
         - @template
         - @user
         - @dbal.conn

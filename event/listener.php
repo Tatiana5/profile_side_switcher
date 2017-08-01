@@ -1,13 +1,13 @@
 <?php
 /**
 *
-* @package profileSideSwitcher
+* @package profilesideswitcher
 * @copyright (c) 2014 Татьяна5
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
-namespace tatiana5\profileSideSwitcher\event;
+namespace tatiana5\profilesideswitcher\event;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -16,6 +16,9 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 */
 class listener implements EventSubscriberInterface
 {
+	/** @var \phpbb\config\config */
+	protected $config;
+
 	/** @var \phpbb\template\template */
 	protected $template;
 
@@ -40,6 +43,7 @@ class listener implements EventSubscriberInterface
 	/**
 	* Constructor
 	*
+	* @param \phpbb\config\config              $config
 	* @param \phpbb\template\template          $template
 	* @param \phpbb\user                       $user
 	* @param \phpbb\db\driver\driver_interface $db
@@ -48,15 +52,16 @@ class listener implements EventSubscriberInterface
 	* @param string                            $php_ext
 	*/
 
-	public function __construct(\phpbb\template\template $template, \phpbb\user $user, \phpbb\db\driver\driver_interface $db, \phpbb\request\request $request, $phpbb_root_path, $php_ext)
+	public function __construct(\phpbb\config\config $config, \phpbb\template\template $template, \phpbb\user $user, \phpbb\db\driver\driver_interface $db, \phpbb\request\request $request, $phpbb_root_path, $php_ext)
 	{
+		$this->config = $config;
 		$this->template = $template;
 		$this->user = $user;
 		$this->db = $db;
 		$this->request = $request;
 		$this->phpbb_root_path = $phpbb_root_path;
 		$this->php_ext = $php_ext;
-		$this->ext_name = "tatiana5/profileSideSwitcher";
+		$this->ext_name = "tatiana5/profilesideswitcher";
 	}
 
 	/**
@@ -84,7 +89,7 @@ class listener implements EventSubscriberInterface
 	{
 		$lang_set_ext = $event['lang_set_ext'];
 		$lang_set_ext[] = array(
-			'ext_name' => 'tatiana5/profileSideSwitcher',
+			'ext_name' => 'tatiana5/profilesideswitcher',
 			'lang_set' => 'profile_side_switcher',
 		);
 		$event['lang_set_ext'] = $lang_set_ext;
@@ -139,6 +144,7 @@ class listener implements EventSubscriberInterface
 		$this->template->assign_vars(array(
 			'PSS_URL_LEFT'		=> append_sid("{$this->phpbb_root_path}viewtopic.$this->php_ext", 'f=' . $forum_id . '&amp;t='. $topic_data['topic_id'] . '&amp;pss=1'),
 			'PSS_URL_RIGHT'		=> append_sid("{$this->phpbb_root_path}viewtopic.$this->php_ext", 'f=' . $forum_id . '&amp;t='. $topic_data['topic_id'] . '&amp;pss=0'),
+			'PSS_IS_PHPBB32'	=> (strpos($this->config['version'], '3.2') === false) ? false : true,
 		));
 	}
 
