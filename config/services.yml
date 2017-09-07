@@ -2,12 +2,12 @@ services:
     tatiana5.profilesideswitcher.listener:
         class: tatiana5\profilesideswitcher\event\listener
         arguments:
-        - @config
-        - @template
-        - @user
-        - @dbal.conn
-        - @request
-        - %core.root_path%
-        - %core.php_ext%
+        - '@config'
+        - '@template'
+        - '@user'
+        - '@dbal.conn'
+        - '@request'
+        - '%core.root_path%'
+        - '%core.php_ext%'
         tags:
             - { name: event.listener }
