@@ -18,7 +18,7 @@ class v_1_0_1 extends \phpbb\db\migration\migration
 
 	static public function depends_on()
 	{
-			return array('\tatiana5\profilesideswitcher\migrations\v0xx\v_1_0_0');
+			return array('\tatiana5\profilesideswitcher\migrations\v1xx\v_1_0_0');
 	}
 
 	public function update_data()
