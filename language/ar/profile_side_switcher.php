@@ -1,9 +1,9 @@
 <?php
 /**
 *
-* profileSideSwitcher [Arabic]
+* profilesideswitcher [Arabic]
 *
-* @package language profileSideSwitcher
+* @package language profilesideswitcher
 * @copyright (c) 2014 Татьяна5
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
@@ -26,4 +26,5 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'PSS_LEFT'			=> 'بيانات العضو باليسار',
 	'PSS_RIGHT'			=> 'بيانات العضو باليمين',
+	'PSS_VIEW_LEFT'		=> 'إظهار بيانات العضو باليسار',
 ));

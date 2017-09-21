@@ -1,0 +1,46 @@
+<!-- IF S_VIEWTOPIC and S_USER_LOGGED_IN and not S_IS_BOT -->
+
+<!-- IF S_PSS_LEFT -->
+	<!-- INCLUDEJS @tatiana5_profilesideswitcher/profile_side_switcher.js -->
+<!-- ENDIF -->
+
+<script>
+	function switchProfiles() {
+		var pss_cont = $('#page-body');
+		var pss_btn = $('.profile-switcher');
+		var pss_url = pss_btn.attr('href');
+		var pss_left = pss_cont.hasClass('leftsided');
+
+		phpbb.addAjaxCallback('pss', function(res) {
+			if (res.success) {
+				if(pss_left) {
+					pss_cont.removeClass('leftsided');
+					<!-- IF PSS_IS_PHPBB32 -->
+						pss_btn.html('<i class="icon fa-newspaper-o" aria-hidden="true"></i><span>{L_PSS_LEFT}</span>');
+					<!-- ELSE -->
+						pss_btn.parent('li').attr('class', 'small-icon icon-pss-left');
+						pss_btn.html('{L_PSS_LEFT}');
+					<!-- ENDIF -->
+					pss_url = pss_url.substring(0, pss_url.length - 1) + '1';
+				} else {
+					pss_cont.addClass('leftsided');
+					<!-- IF PSS_IS_PHPBB32 -->
+						pss_btn.html('<i class="icon fa-newspaper-o" aria-hidden="true"></i><span>{L_PSS_RIGHT}</span>');
+					<!-- ELSE -->
+						pss_btn.parent('li').attr('class', 'small-icon icon-pss-right');
+						pss_btn.html('{L_PSS_RIGHT}');
+					<!-- ENDIF -->
+					pss_url = pss_url.substring(0, pss_url.length - 1) + '0';
+				}
+				pss_btn.attr('href', pss_url);
+			}
+		});
+	}
+
+	$('.profile-switcher').on('click', function(e) {
+		e.preventDefault();
+		switchProfiles();
+	});
+</script>
+
+<!-- ENDIF -->

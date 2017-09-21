@@ -4,7 +4,7 @@
 * Profile side switcher extension for the phpBB Forum Software package.
 * French translation by tomberaid (http://www.worshiprom.com/) & Galixte (http://www.galixte.com)
 *
-* @package language profileSideSwitcher
+* @package language profilesideswitcher
 * @copyright (c) 2014 Татьяна5
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
@@ -42,4 +42,5 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'PSS_LEFT'			=> 'Mini-profils à gauche',
 	'PSS_RIGHT'			=> 'Mini-profils à droite',
+	'PSS_VIEW_LEFT'		=> 'Afficher le mini-profil à gauche des messages',
 ));

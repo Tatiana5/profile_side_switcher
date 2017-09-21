@@ -1,11 +1,27 @@
-<!-- IF S_USER_LOGGED_IN and not S_IS_BOT -->
-	<!-- IF S_PSS_LEFT -->
-		<li class="small-icon icon-pss-right">
-			<a href="{PSS_URL_RIGHT}" id="profile-switcher" onclick="switchProfiles(); return false;" data-ajax="pss">{L_PSS_RIGHT}</a>
-		</li>
+<!-- IF S_VIEWTOPIC and S_USER_LOGGED_IN and not S_IS_BOT -->
+	<!-- IF PSS_IS_PHPBB32 -->
+		<!-- IF S_PSS_LEFT -->
+			<li>
+				<a href="{PSS_URL_RIGHT}" class="profile-switcher" data-ajax="pss">
+					<i class="icon fa-newspaper-o" aria-hidden="true"></i><span>{L_PSS_RIGHT}</span>
+				</a>
+			</li>
+		<!-- ELSE -->
+			<li>
+				<a href="{PSS_URL_LEFT}" class="profile-switcher" data-ajax="pss">
+					<i class="icon fa-newspaper-o" aria-hidden="true"></i><span>{L_PSS_LEFT}</span>
+				</a>
+			</li>
+		<!-- ENDIF -->
 	<!-- ELSE -->
-		<li class="small-icon icon-pss-left">
-			<a href="{PSS_URL_LEFT}" id="profile-switcher" onclick="switchProfiles(); return false;" data-ajax="pss">{L_PSS_LEFT}</a>
-		</li>
+		<!-- IF S_PSS_LEFT -->
+			<li class="small-icon icon-pss-right">
+				<a href="{PSS_URL_RIGHT}" class="profile-switcher" data-ajax="pss">{L_PSS_RIGHT}</a>
+			</li>
+		<!-- ELSE -->
+			<li class="small-icon icon-pss-left">
+				<a href="{PSS_URL_LEFT}" class="profile-switcher" data-ajax="pss">{L_PSS_LEFT}</a>
+			</li>
+		<!-- ENDIF -->
 	<!-- ENDIF -->
 <!-- ENDIF -->

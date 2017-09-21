@@ -1,13 +1,13 @@
 <?php
 /**
 *
-* @package profileSideSwitcher
+* @package profilesideswitcher
 * @copyright (c) 2014 Татьяна5
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
 
-namespace tatiana5\profileSideSwitcher\migrations\v0xx;
+namespace tatiana5\profilesideswitcher\migrations\v0xx;
 
 class v_0_0_1 extends \phpbb\db\migration\migration
 {
@@ -46,8 +46,6 @@ class v_0_0_1 extends \phpbb\db\migration\migration
 		return array(
 			// Current version
 			array('config.add', array('pss_version', '0.0.1')),
-
-			// Add ACP modules
 		);
 	}
 }
