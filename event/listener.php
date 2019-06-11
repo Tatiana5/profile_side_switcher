@@ -115,7 +115,7 @@ class listener implements EventSubscriberInterface
 		}
 
 		$this->template->assign_vars(array(
-			'T_PSS_STYLESHEET_LANG_LINK'	=> $style_lang_path,
+			'T_PSS_STYLESHEET_LANG_LINK'	=> $ext_style_path . $style_lang_path,
 		));
 	}
 
