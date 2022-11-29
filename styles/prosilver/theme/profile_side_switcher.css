@@ -1,11 +1,11 @@
 /* Mini profiles on the left */
 .leftsided .post:not(.profile_hidden) div.postbody {
 	float: right;
-	width: 79%;
+	width: calc(100% - 200px - 1px - 16px);
 }
 .leftsided .postprofile {
 	float: left;
-	width: 20%;
+	width: 200px;
 	border-left: none;
 	border-right: 1px solid #FFF;
 }
