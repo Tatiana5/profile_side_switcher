@@ -23,6 +23,12 @@
         "display-name": "Profile side switcher",
         "soft-require": {
 		    "phpbb/phpbb": "3.1.*@dev"
+        },
+		"version-check" : {
+				"host": "raw.githubusercontent.com",
+				"directory": "/Tatiana5/profile_side_switcher/refs/heads/master",
+				"filename": "version",
+				"ssl": true
         }
     }
 }
